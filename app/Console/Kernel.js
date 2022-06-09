@@ -1,4 +1,4 @@
-import { ArtisanLoader, ConsoleKernel } from "@athenna/artisan";
+import { ArtisanLoader, ConsoleKernel } from '@athenna/artisan'
 
 export class Kernel extends ConsoleKernel {
   /**
@@ -6,5 +6,5 @@ export class Kernel extends ConsoleKernel {
    *
    * @return void
    */
-  commands = [...ArtisanLoader.loadHttp()];
+  commands = [...ArtisanLoader.loadHttp()]
 }

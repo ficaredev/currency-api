@@ -7,15 +7,15 @@
  * file that was distributed with this source code.
  */
 
-import { WelcomeServiceMock } from "#tests/Stubs/WelcomeServiceMock";
+import { WelcomeServiceMock } from '#tests/Stubs/WelcomeServiceMock'
 
-import { assert } from "@japa/assert";
-import { Ignite } from "@athenna/core";
-import { Server } from "@athenna/http";
-import { pathToFileURL } from "node:url";
-import { specReporter } from "@japa/spec-reporter";
-import { runFailedTests } from "@japa/run-failed-tests";
-import { configure, processCliArgs, run, TestContext } from "@japa/runner";
+import { assert } from '@japa/assert'
+import { Ignite } from '@athenna/core'
+import { Server } from '@athenna/http'
+import { pathToFileURL } from 'node:url'
+import { specReporter } from '@japa/spec-reporter'
+import { runFailedTests } from '@japa/run-failed-tests'
+import { configure, processCliArgs, run, TestContext } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ import { configure, processCliArgs, run, TestContext } from "@japa/runner";
 | the `.env.${process.env.NODE_ENV}` file as default.
 */
 
-process.env.NODE_ENV = "test";
+process.env.NODE_ENV = 'test'
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ process.env.NODE_ENV = "test";
 | ignite the application.
 */
 
-ioc.mock("App/Services/WelcomeService", WelcomeServiceMock);
+ioc.mock('App/Services/WelcomeService', WelcomeServiceMock)
 
 /*
 |--------------------------------------------------------------------------
@@ -59,43 +59,41 @@ configure({
   ...{
     suites: [
       {
-        name: "Unit",
-        files: ["tests/Unit/**/*Test.js"],
+        name: 'Unit',
+        files: ['tests/Unit/**/*Test.js'],
         configure(suite) {
           suite.setup(async () => {
-            const application = await new Ignite().fire();
+            const application = await new Ignite().fire()
 
-            TestContext.macro("request", () => {
-            });
-            TestContext.macro("application", application);
+            TestContext.macro('request', () => {})
+            TestContext.macro('application', application)
 
-            return () => {
-            };
-          });
-        }
+            return () => {}
+          })
+        },
       },
       {
-        name: "E2E",
-        files: ["tests/E2E/**/*Test.js"],
+        name: 'E2E',
+        files: ['tests/E2E/**/*Test.js'],
         configure(suite) {
           suite.setup(async () => {
-            const application = await new Ignite().fire();
+            const application = await new Ignite().fire()
 
-            await application.bootHttpServer();
+            await application.bootHttpServer()
 
-            TestContext.macro("request", Server.request);
-            TestContext.macro("application", application);
+            TestContext.macro('request', Server.request)
+            TestContext.macro('application', application)
 
-            return async () => await application.shutdownHttpServer();
-          });
-        }
-      }
+            return async () => await application.shutdownHttpServer()
+          })
+        },
+      },
     ],
     plugins: [assert(), runFailedTests()],
     reporters: [specReporter()],
-    importer: filePath => import(pathToFileURL(filePath).href)
-  }
-});
+    importer: filePath => import(pathToFileURL(filePath).href),
+  },
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -106,4 +104,4 @@ configure({
 |
 */
 
-run();
+run()

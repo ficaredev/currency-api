@@ -1,4 +1,4 @@
-import { Path } from "@secjs/utils";
+import { Path } from '@secjs/utils'
 
 export default {
   /*
@@ -12,7 +12,7 @@ export default {
   |
   */
 
-  default: Env("LOG_CHANNEL", "application"),
+  default: Env('LOG_CHANNEL', 'application'),
 
   /*
   |--------------------------------------------------------------------------
@@ -30,75 +30,75 @@ export default {
 
   channels: {
     application: {
-      driver: "console",
-      formatter: "simple",
-      streamType: "stdout",
-      formatterConfig: {}
+      driver: 'console',
+      formatter: 'simple',
+      streamType: 'stdout',
+      formatterConfig: {},
     },
     console: {
-      driver: "console",
-      formatter: "cli",
-      streamType: "stdout",
-      formatterConfig: {}
+      driver: 'console',
+      formatter: 'cli',
+      streamType: 'stdout',
+      formatterConfig: {},
     },
     exception: {
-      driver: "console",
-      formatter: "none",
-      streamType: "stdout"
+      driver: 'console',
+      formatter: 'none',
+      streamType: 'stdout',
     },
     request: {
-      driver: "console",
-      formatter: "request",
-      streamType: "stdout",
+      driver: 'console',
+      formatter: 'request',
+      streamType: 'stdout',
       formatterConfig: {
-        asJson: false
-      }
+        asJson: false,
+      },
     },
     pino: {
-      driver: "pino",
-      formatter: "pino-pretty",
+      driver: 'pino',
+      formatter: 'pino-pretty',
       formatterConfig: {
-        colorize: true
-      }
+        colorize: true,
+      },
     },
     debug: {
-      driver: "debug",
-      formatter: "nest",
-      namespace: "api:main",
+      driver: 'debug',
+      formatter: 'nest',
+      namespace: 'api:main',
       formatterConfig: {
-        level: "DEBUG",
-        context: "Debugger"
-      }
+        level: 'DEBUG',
+        context: 'Debugger',
+      },
     },
     discard: {
-      driver: "null"
+      driver: 'null',
     },
     file: {
-      driver: "file",
-      formatter: "simple",
-      filePath: Path.logs("athenna.log"),
-      formatterConfig: {}
+      driver: 'file',
+      formatter: 'simple',
+      filePath: Path.logs('athenna.log'),
+      formatterConfig: {},
     },
     slack: {
-      driver: "slack",
-      formatter: "message",
-      url: "your-slack-webhook-url",
-      formatterConfig: {}
+      driver: 'slack',
+      formatter: 'message',
+      url: 'your-slack-webhook-url',
+      formatterConfig: {},
     },
     discord: {
-      driver: "discord",
-      formatter: "message",
-      username: "Athenna",
-      url: "your-discord-webhook-url",
-      formatterConfig: {}
+      driver: 'discord',
+      formatter: 'message',
+      username: 'Athenna',
+      url: 'your-discord-webhook-url',
+      formatterConfig: {},
     },
     telegram: {
-      driver: "telegram",
-      formatter: "message",
-      token: "your-telegram-bot-token",
+      driver: 'telegram',
+      formatter: 'message',
+      token: 'your-telegram-bot-token',
       chatId: 0,
-      parseMode: "HTML",
-      formatterConfig: {}
-    }
-  }
-};
+      parseMode: 'HTML',
+      formatterConfig: {},
+    },
+  },
+}

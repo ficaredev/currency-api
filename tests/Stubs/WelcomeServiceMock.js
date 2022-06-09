@@ -1,5 +1,5 @@
 export class WelcomeServiceMock {
   async findOne() {
-    return { mock: true };
+    return { mock: true }
   }
 }

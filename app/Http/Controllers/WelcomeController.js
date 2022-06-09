@@ -1,6 +1,6 @@
 export class WelcomeController {
   /** @type {import("#app/Services/WelcomeService")} */
-  #welcomeService;
+  #welcomeService
 
   /**
    * Use the constructor to resolve any dependency of the Ioc container.
@@ -8,7 +8,7 @@ export class WelcomeController {
    * @param {any} welcomeService
    */
   constructor(welcomeService) {
-    this.welcomeService = welcomeService;
+    this.welcomeService = welcomeService
   }
 
   /**
@@ -17,8 +17,8 @@ export class WelcomeController {
    * @param {import("@athenna/http").ContextContract} ctx
    */
   async show({ response }) {
-    const data = await this.welcomeService.findOne();
+    const data = await this.welcomeService.findOne()
 
-    return response.status(200).send(data);
+    return response.status(200).send(data)
   }
 }

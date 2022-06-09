@@ -1,4 +1,4 @@
-import { Artisan } from "@athenna/artisan";
+import { Artisan } from '@athenna/artisan'
 
 /*
 |--------------------------------------------------------------------------
@@ -10,8 +10,8 @@ import { Artisan } from "@athenna/artisan";
 |
 */
 
-Artisan.command("hello", function() {
-  this.success("Hello from Athenna!");
+Artisan.command('hello', function () {
+  this.success('Hello from Athenna!')
 })
-  .description("Athenna just says hello.")
-  .createHelp();
+  .description('Athenna just says hello.')
+  .createHelp()
