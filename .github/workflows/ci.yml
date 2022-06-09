@@ -44,6 +44,15 @@ jobs:
       - run: npm install
       - run: npm run test:coverage
 
+  synk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
