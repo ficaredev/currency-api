@@ -1,4 +1,4 @@
-import { ConsoleExceptionHandler } from "@athenna/artisan";
+import { ConsoleExceptionHandler } from '@athenna/artisan'
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,6 @@ export class Handler extends ConsoleExceptionHandler {
    * @param {any} error
    */
   async handle(error) {
-    return super.handle(error);
+    return super.handle(error)
   }
 }

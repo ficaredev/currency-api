@@ -1,11 +1,11 @@
-import { Ignite } from "@athenna/core";
-import { install } from "source-map-support";
+import { Ignite } from '@athenna/core'
+import { install } from 'source-map-support'
 
 async function main() {
-  install();
+  install()
 
-  const application = await new Ignite().fire();
-  await application.bootHttpServer();
+  const application = await new Ignite().fire()
+  await application.bootHttpServer()
 }
 
-main().catch();
+main().catch()

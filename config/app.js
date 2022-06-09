@@ -1,10 +1,10 @@
-import { File } from "@secjs/utils";
-import { Log } from "@athenna/logger";
-import { Server } from "@athenna/http";
+import { File } from '@secjs/utils'
+import { Log } from '@athenna/logger'
+import { Server } from '@athenna/http'
 
 const { name, version, description } = JSON.parse(
-  new File("../package.json").getContentSync().toString()
-);
+  new File('../package.json').getContentSync().toString(),
+)
 
 export default {
   /*
@@ -16,7 +16,7 @@ export default {
   |
   */
 
-  environment: process.env.NODE_ENV || "production",
+  environment: process.env.NODE_ENV || 'production',
 
   /*
   |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ export default {
   |
   */
 
-  debug: Env("APP_DEBUG", true),
+  debug: Env('APP_DEBUG', true),
 
   /*
   |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ export default {
   |
   */
 
-  name: name || Env("APP_NAME", "Athenna"),
+  name: name || Env('APP_NAME', 'Athenna'),
 
   /*
   |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ export default {
   |
   */
 
-  description: description || Env("APP_DESCRIPTION", "Athenna is awesome!"),
+  description: description || Env('APP_DESCRIPTION', 'Athenna is awesome!'),
 
   /*
   |--------------------------------------------------------------------------
@@ -79,7 +79,7 @@ export default {
   |
   */
 
-  appKey: Env("APP_KEY", "12345"),
+  appKey: Env('APP_KEY', '12345'),
 
   /*
   |--------------------------------------------------------------------------
@@ -91,7 +91,10 @@ export default {
   |
   */
 
-  source: Env("APP_SOURCE", "https://github.com/AthennaIO"),
+  source: Env(
+    'APP_SOURCE',
+    'https://github.com/microservicescommunication/currency-api',
+  ),
 
   /*
   |--------------------------------------------------------------------------
@@ -103,7 +106,7 @@ export default {
   |
   */
 
-  documentation: Env("APP_DOMAIN", "http://localhost:1335"),
+  documentation: Env('APP_DOMAIN', 'http://localhost:1335'),
 
   /*
   |--------------------------------------------------------------------------
@@ -116,7 +119,7 @@ export default {
   |
   */
 
-  locale: Env("APP_LOCALE", "pt"),
+  locale: Env('APP_LOCALE', 'pt'),
 
   /*
   |--------------------------------------------------------------------------
@@ -129,9 +132,9 @@ export default {
   */
 
   gracefulShutdownCb: async () => {
-    Log.warn("Athenna application gracefully shutting down.");
+    Log.warn('Athenna application gracefully shutting down.')
 
-    await Server.close();
+    await Server.close()
   },
 
   /*
@@ -146,14 +149,14 @@ export default {
   */
 
   providers: [
-    import("@athenna/http/providers/HttpServerProvider"),
-    import("@athenna/http/providers/HttpRouteProvider"),
-    import("@athenna/logger/providers/LoggerProvider"),
-    import("@athenna/core/providers/ServiceProvider"),
-    import("@athenna/http/providers/ControllerProvider"),
-    import("@athenna/http/providers/MiddlewareProvider"),
-    import("@athenna/artisan/providers/ArtisanProvider"),
-    import("#providers/AppServiceProvider")
+    import('@athenna/http/providers/HttpServerProvider'),
+    import('@athenna/http/providers/HttpRouteProvider'),
+    import('@athenna/logger/providers/LoggerProvider'),
+    import('@athenna/core/providers/ServiceProvider'),
+    import('@athenna/http/providers/ControllerProvider'),
+    import('@athenna/http/providers/MiddlewareProvider'),
+    import('@athenna/artisan/providers/ArtisanProvider'),
+    import('#providers/AppServiceProvider'),
   ],
 
   /*
@@ -167,5 +170,5 @@ export default {
   |
   */
 
-  preloads: []
-};
+  preloads: [],
+}

@@ -1,4 +1,4 @@
-import { ServiceProvider } from "@athenna/ioc";
+import { ServiceProvider } from '@athenna/ioc'
 
 export class AppServiceProvider extends ServiceProvider {
   /**
@@ -6,14 +6,12 @@ export class AppServiceProvider extends ServiceProvider {
    *
    * @return {void}
    */
-  register() {
-  }
+  register() {}
 
   /**
    * Bootstrap any application services.
    *
    * @return {void}
    */
-  boot() {
-  }
+  boot() {}
 }

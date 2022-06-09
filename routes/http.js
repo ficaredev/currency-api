@@ -1,4 +1,4 @@
-import { Route } from "@athenna/http";
+import { Route } from '@athenna/http'
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +11,7 @@ import { Route } from "@athenna/http";
 */
 
 Route.group(() => {
-  Route.get("/", "WelcomeController.show");
+  Route.get('/', 'WelcomeController.show')
 
-  Route.group(() => {
-  }).prefix("/api/v1");
-});
+  Route.group(() => {}).prefix('/api/v1')
+})

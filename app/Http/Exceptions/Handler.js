@@ -1,4 +1,4 @@
-import { HttpExceptionHandler } from "@athenna/http";
+import { HttpExceptionHandler } from '@athenna/http'
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ export class Handler extends HttpExceptionHandler {
    *
    * @protected
    */
-  ignoreCodes = [];
+  ignoreCodes = []
 
   /**
    * Ignore status codes from being reported that
@@ -26,7 +26,7 @@ export class Handler extends HttpExceptionHandler {
    *
    * @protected
    */
-  ignoreStatuses = [];
+  ignoreStatuses = []
 
   /**
    * The global exception handler of all HTTP requests.
@@ -34,6 +34,6 @@ export class Handler extends HttpExceptionHandler {
    * @param {import("@athenna/http").ErrorContextContract} ctx
    */
   async handle(ctx) {
-    return super.handle(ctx);
+    return super.handle(ctx)
   }
 }

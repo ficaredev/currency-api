@@ -9,7 +9,7 @@ export default {
   |
   */
 
-  host: Env("HOST", "127.0.0.1"),
+  host: Env('HOST', '127.0.0.1'),
 
   /*
   |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ export default {
   |
   */
 
-  port: Env("PORT", 1335),
+  port: Env('PORT', 1335),
 
   /*
   |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ export default {
   |
   */
 
-  domain: Env("APP_DOMAIN", "http://localhost:1335"),
+  domain: Env('APP_DOMAIN', 'http://localhost:1335'),
 
   /*
   |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ export default {
   |
   */
 
-  logRequests: Env("LOG_HTTP", true),
+  logRequests: Env('LOG_HTTP', true),
 
   /*
   |--------------------------------------------------------------------------
@@ -141,7 +141,7 @@ export default {
     |
     */
 
-    origin: ["*"],
+    origin: ['*'],
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ export default {
     |
     */
 
-    methods: ["*"],
+    methods: ['*'],
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,7 @@ export default {
     |
     */
 
-    allowedHeaders: ["*"],
+    allowedHeaders: ['*'],
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +181,7 @@ export default {
     |
     */
 
-    exposedHeaders: ["*"],
+    exposedHeaders: ['*'],
 
     /*
     |--------------------------------------------------------------------------
@@ -205,7 +205,7 @@ export default {
     |
     */
 
-    credentials: false
+    credentials: false,
   },
 
   /*
@@ -320,6 +320,6 @@ export default {
     |
     */
 
-    enableDraftSpec: false
-  }
-};
+    enableDraftSpec: false,
+  },
+}
