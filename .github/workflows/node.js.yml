@@ -1,0 +1,46 @@
+name: Continuos Integration
+
+on:
+  pull_request:
+    branches: [ develop, master ]
+
+jobs:
+  code-analysis:
+    name: Code Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+              node-version: 16
+              cache: 'npm'
+        - run: npm install
+        - run: npm run lint:fix
+        - run: npm audit
+
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+              node-version: 16
+              cache: 'npm'
+        - run: npm install
+        - run: npm run unit
+
+  test-coverage:
+    name: Test Coverage
+    runs-on: ubuntu-latest
+    
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+              node-version: 16
+              cache: 'npm'
+        - run: npm install
+        - run: npm run coverage
