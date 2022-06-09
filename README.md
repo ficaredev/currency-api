@@ -1,9 +1,9 @@
-# Template
+# Currency API
 
 <p>
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/microservicescommunication/template?style=for-the-badge&logo=appveyor">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/microservicescommunication/currency-api?style=for-the-badge&logo=appveyor">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/microservicescommunication/template?style=for-the-badge&logo=appveyor">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/microservicescommunication/currency-api?style=for-the-badge&logo=appveyor">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge&logo=appveyor">
 
