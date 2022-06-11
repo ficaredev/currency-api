@@ -9,7 +9,7 @@ test.group('WelcomeServiceTest', () => {
 
     assert.equal(name, 'currency')
     assert.equal(version, '1.0.0')
-    assert.equal(domain, 'http://localhost:1335')
+    assert.equal(domain, 'localhost')
     assert.equal(source, 'https://github.com/microservicescommunication/currency-api')
     assert.equal(description, 'Currency API')
   })
