@@ -1,5 +1,19 @@
 version: '3'
 services:
+    currency:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        image: currency
+        env_file:
+            - .env
+        depends_on:
+            - mysql
+        networks:
+            - currency
+        ports:
+            - "1335:1335"
+
     mysql:
         image: 'mysql:8.0'
         ports:
@@ -11,16 +25,16 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
-            - 'appmysql:/var/lib/mysql'
+            - 'currencymysql:/var/lib/mysql'
         networks:
-            - app
+            - currency
         healthcheck:
             test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
             retries: 3
             timeout: 5s
 networks:
-    app:
+    currency:
         driver: bridge
 volumes:
-    appmysql:
+    currencymysql:
         driver: local

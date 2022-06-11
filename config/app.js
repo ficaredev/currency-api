@@ -106,7 +106,7 @@ export default {
   |
   */
 
-  documentation: Env('APP_DOMAIN', 'http://localhost:1335'),
+  documentation: Env('APP_DOCUMENTATION', 'http://localhost:1335/api/docs'),
 
   /*
   |--------------------------------------------------------------------------
