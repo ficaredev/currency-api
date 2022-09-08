@@ -18,7 +18,9 @@ export class Handler extends HttpExceptionHandler {
    *
    * @protected
    */
-  ignoreCodes = []
+  get ignoreCodes() {
+    return []
+  }
 
   /**
    * Ignore status codes from being reported that
@@ -26,12 +28,14 @@ export class Handler extends HttpExceptionHandler {
    *
    * @protected
    */
-  ignoreStatuses = []
+  get ignoreStatuses() {
+    return []
+  }
 
   /**
    * The global exception handler of all HTTP requests.
    *
-   * @param {import("@athenna/http").ErrorContextContract} ctx
+   * @param {import('@athenna/http').ErrorContextContract} ctx
    */
   async handle(ctx) {
     return super.handle(ctx)

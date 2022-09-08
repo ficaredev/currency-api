@@ -1,18 +1,18 @@
 version: '3'
 services:
-    currency:
-        build: 
-            context: .
-            dockerfile: Dockerfile
-        image: currency
-        env_file:
-            - .env
-        depends_on:
-            - mysql
-        networks:
-            - currency
-        ports:
-            - "1335:1335"
+#    currency:
+#        build:
+#            context: .
+#            dockerfile: Dockerfile
+#        image: currency
+#        env_file:
+#            - .env
+#        depends_on:
+#            - mysql
+#        networks:
+#            - currency
+#        ports:
+#            - "1335:1335"
 
     mysql:
         image: 'mysql:8.0'

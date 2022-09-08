@@ -91,10 +91,7 @@ export default {
   |
   */
 
-  source: Env(
-    'APP_SOURCE',
-    'https://github.com/microservicescommunication/currency-api',
-  ),
+  source: Env('APP_SOURCE', 'https://github.com/AthennaIO'),
 
   /*
   |--------------------------------------------------------------------------
@@ -106,7 +103,7 @@ export default {
   |
   */
 
-  documentation: Env('APP_DOCUMENTATION', 'http://localhost:1335/api/docs'),
+  documentation: Env('APP_DOCUMENTATION', 'http://localhost:1335'),
 
   /*
   |--------------------------------------------------------------------------
@@ -119,7 +116,7 @@ export default {
   |
   */
 
-  locale: Env('APP_LOCALE', 'pt'),
+  locale: Env('APP_LOCALE', 'en'),
 
   /*
   |--------------------------------------------------------------------------
@@ -153,10 +150,12 @@ export default {
     import('@athenna/http/providers/HttpRouteProvider'),
     import('@athenna/logger/providers/LoggerProvider'),
     import('@athenna/core/providers/ServiceProvider'),
+    import('@athenna/core/providers/RepositoryProvider'),
     import('@athenna/http/providers/ControllerProvider'),
     import('@athenna/http/providers/MiddlewareProvider'),
     import('@athenna/artisan/providers/ArtisanProvider'),
     import('#providers/AppServiceProvider'),
+    import('@athenna/database/providers/DatabaseProvider'),
   ],
 
   /*
