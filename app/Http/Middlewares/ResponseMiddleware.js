@@ -7,7 +7,7 @@ export class ResponseMiddleware {
   /**
    * Intercept method is executed before the response has been sent.
    *
-   * @param {import("@athenna/http").InterceptContextContract} InterceptContextContract
+   * @param {import('@athenna/http').InterceptContextContract} InterceptContextContract
    */
   intercept({ request, body, status }) {
     const newBody = {

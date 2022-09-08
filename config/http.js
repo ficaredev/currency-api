@@ -33,7 +33,7 @@ export default {
   |
   */
 
-  domain: Env('APP_DOMAIN', 'localhost'),
+  domain: Env('APP_DOMAIN', 'http://localhost:1335'),
 
   /*
   |--------------------------------------------------------------------------

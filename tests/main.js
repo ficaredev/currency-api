@@ -7,26 +7,11 @@
  * file that was distributed with this source code.
  */
 
-import { WelcomeServiceMock } from '#tests/Stubs/WelcomeServiceMock'
-
 import { assert } from '@japa/assert'
-import { Ignite } from '@athenna/core'
-import { Server } from '@athenna/http'
-import { pathToFileURL } from 'node:url'
+import { TestSuite } from '@athenna/test'
 import { specReporter } from '@japa/spec-reporter'
 import { runFailedTests } from '@japa/run-failed-tests'
-import { configure, processCliArgs, run, TestContext } from '@japa/runner'
-
-/*
-|--------------------------------------------------------------------------
-| Set test environment
-|--------------------------------------------------------------------------
-|
-| Set the test environment. This value will remove bootstrap logs and set
-| the `.env.${process.env.NODE_ENV}` file as default.
-*/
-
-process.env.NODE_ENV = 'test'
+import { processCliArgs, configure, run } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +23,7 @@ process.env.NODE_ENV = 'test'
 | ignite the application.
 */
 
-ioc.mock('App/Services/WelcomeService', WelcomeServiceMock)
+// ioc.mock()
 
 /*
 |--------------------------------------------------------------------------
@@ -55,43 +40,23 @@ ioc.mock('App/Services/WelcomeService', WelcomeServiceMock)
 */
 
 configure({
-  ...processCliArgs(process.argv.slice(2)),
+  ...processCliArgs(TestSuite.getArgs()),
   ...{
     suites: [
       {
-        name: 'Unit',
-        files: ['tests/Unit/**/*Test.js'],
-        configure(suite) {
-          suite.setup(async () => {
-            const application = await new Ignite().fire()
-
-            TestContext.macro('request', () => {})
-            TestContext.macro('application', application)
-
-            return () => {}
-          })
-        },
+        name: 'E2E',
+        files: ['tests/E2E/**/*Test.js', 'tests/E2E/**/*TestFn.js'],
+        configure: suite => TestSuite.httpEnd2EndSuite(suite),
       },
       {
-        name: 'E2E',
-        files: ['tests/E2E/**/*Test.js'],
-        configure(suite) {
-          suite.setup(async () => {
-            const application = await new Ignite().fire()
-
-            await application.bootHttpServer()
-
-            TestContext.macro('request', Server.request)
-            TestContext.macro('application', application)
-
-            return async () => await application.shutdownHttpServer()
-          })
-        },
+        name: 'Unit',
+        files: ['tests/Unit/**/*Test.js', 'tests/Unit/**/*TestFn.js'],
+        configure: suite => TestSuite.unitSuite(suite),
       },
     ],
     plugins: [assert(), runFailedTests()],
     reporters: [specReporter()],
-    importer: filePath => import(pathToFileURL(filePath).href),
+    importer: filePath => TestSuite.importer(filePath),
   },
 })
 

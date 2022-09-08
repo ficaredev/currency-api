@@ -11,7 +11,19 @@ import { Route } from '@athenna/http'
 */
 
 Route.group(() => {
-  Route.get('/', 'WelcomeController.show')
+  Route.get('/', ({ response }) => {
+    const data = {
+      name: Config.get('app.name'),
+      domain: Config.get('http.domain'),
+      version: Config.get('app.version'),
+      description: Config.get('app.description'),
+      source: Config.get('app.source'),
+    }
 
-  Route.group(() => {}).prefix('/api/v1')
+    return response.status(200).send(data)
+  })
+
+  Route.group(() => {
+    Route.resource('currencies', 'CurrencyController')
+  }).prefix('/api/v1')
 })
